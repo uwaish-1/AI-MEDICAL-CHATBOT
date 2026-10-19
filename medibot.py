@@ -189,10 +189,21 @@ Start the answer directly. No small talk please.
             # Groq LLM
             # -----------------------------
 
+            # llm = ChatGroq(
+            #     model_name="openai/gpt-oss-120b",
+            #     temperature=0.0,
+            #     groq_api_key=os.environ["GROQ_API_KEY"],
+            # )
+            api_key = os.environ.get("GROQ_API_KEY", "")
+
+            st.write("API key loaded:", bool(api_key))
+            st.write("API key starts with:", api_key[:4] if api_key else "MISSING")
+            st.write("API key length:", len(api_key))
+
             llm = ChatGroq(
                 model_name="openai/gpt-oss-120b",
                 temperature=0.0,
-                groq_api_key=os.environ["GROQ_API_KEY"],
+                groq_api_key=api_key,
             )
 
             # -----------------------------
