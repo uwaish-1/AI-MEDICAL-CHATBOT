@@ -102,8 +102,6 @@
 #     main()
 
 import os
-from unittest import result
-from urllib import response
 import streamlit as st
 
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -262,9 +260,9 @@ Start the answer directly. No small talk please.
                 page = doc.metadata.get("page_label", doc.metadata.get("page", "Unknown"))
                 source = doc.metadata.get("source", "Unknown source")
 
-            source_name = os.path.basename(source)
+                source_name = os.path.basename(source)
 
-            sources_text += f"- 📄 {source_name} — Page {page}\n"
+                sources_text += f"- 📄 {source_name} — Page {page}\n"
 
             result_to_show = result + sources_text
 
@@ -274,8 +272,8 @@ Start the answer directly. No small talk please.
                 {
                 "role": "assistant",
                 "content": result_to_show
-        }
-     )
+                } 
+            )
         except Exception as e:
 
             st.error(f"Error: {str(e)}")
